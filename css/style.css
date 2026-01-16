@@ -168,6 +168,7 @@ main { width: 80%; margin: 0 auto; }
 
 
 
+
 .text-gauche { text-align: left; max-width: 620px; }
 .text-droite { text-align: left; max-width: 480px; margin-left: auto; }
 
@@ -188,6 +189,125 @@ main { width: 80%; margin: 0 auto; }
 #messageContainer .error { background: rgba(180,0,0,0.1); }
 
 .site-footer { margin-top: 6rem; padding: 2rem 0; text-align: center; font-size: 0.85rem; opacity: 0.7; }
+
+
+/* ============================
+   SECTION CTA - TÉLÉCHARGER RAPPORT
+============================ */
+
+/* Container principal de la section CTA */
+.cta-section {
+    position: relative;           /* Permet de positionner l'image et le bouton en absolu relatif à cette section */
+    width: 100%;                  /* Prend toute la largeur de la page */
+    display: flex;                /* Utilise flexbox pour centrer le bouton horizontalement */
+    justify-content: center;      /* Centre horizontalement */
+    align-items: center;          /* Centre verticalement */
+    height: 60vh;                 /* Hauteur de la section : 60% de la hauteur de la fenêtre */
+    overflow: hidden;             /* Cache tout ce qui dépasse de la section */
+    margin: 8rem 0;               /* Marge en haut et en bas */
+}
+
+/* Image de fond de la section CTA */
+.cta-background {
+    position: absolute;           /* Absolue pour être derrière le bouton */
+    top: 50%;                     /* Centre verticalement */
+    left: 50%;                    /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste le centrage exact */
+    width: 100%;                  /* Largeur = largeur de la page */
+    height: 100%;                 /* Hauteur = hauteur de la section */
+    object-fit: contain;          /* Contenu entier visible sans être coupé */
+    z-index: 1;                   /* Derrière le bouton */
+    opacity: 0.8;                 /* Légère transparence pour que le bouton ressorte */
+}
+
+/* Bouton principal du CTA */
+.cta-button {
+    position: relative;           /* Relatif pour être au-dessus de l'image */
+    z-index: 2;                   /* Toujours devant l'image */
+    background-color: #FF3B30;    /* Rouge vif */
+    color: #fff;                  /* Texte blanc */
+    padding: 1rem 2rem;           /* Taille du bouton */
+    font-size: 1.25rem;           /* Taille du texte */
+    font-weight: 600;             /* Texte gras */
+    border-radius: 8px;           /* Coins arrondis */
+    text-decoration: none;        /* Pas de soulignement */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide au hover */
+}
+
+/* Effet hover sur le bouton */
+.cta-button:hover {
+    transform: scale(1.15);       /* Zoom plus important quand on passe la souris */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Ombre plus prononcée */
+}
+
+/* Version responsive pour mobile */
+@media (max-width: 768px) {
+    .cta-section {
+        height: 50vh;             /* Hauteur réduite sur mobile */
+        margin: 4rem 0;           /* Moins d'espace vertical */
+    }
+
+    .cta-button {
+        font-size: 1rem;           /* Texte un peu plus petit */
+        padding: 0.75rem 1.5rem;   /* Bouton plus petit */
+    }
+}
+
+/* ============================
+   PARAGRAPHES PARALLÈLES
+============================ */
+
+/* Container de la section */
+.parallel-paragraphs .row {
+    display: flex;               /* Affiche les paragraphes côte à côte */
+    justify-content: space-between; /* Espace entre les paragraphes */
+    gap: 5rem;                   /* Espace intérieur entre gauche et droite */
+    margin: 4rem 0;              /* Marge autour de la section */
+}
+
+/* Style commun pour chaque paragraphe */
+.parallel-paragraphs .paragraph-left,
+.parallel-paragraphs .paragraph-right {
+    flex: 1;                     /* Chaque paragraphe prend la moitié de la ligne */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Effet fluide au hover */
+    cursor: pointer;             /* Indique qu'il y a un effet au survol */
+}
+
+/* Titre du paragraphe */
+.parallel-paragraphs h2 {
+    font-size: 1.5rem;           /* Taille du titre */
+    margin-bottom: 1rem;         /* Espace sous le titre */
+}
+
+/* Texte du paragraphe */
+.parallel-paragraphs p {
+    font-size: 1rem;             /* Taille du texte */
+    line-height: 1.6;            /* Espacement des lignes */
+}
+
+/* Effet hover : agrandissement du paragraphe */
+.parallel-paragraphs .paragraph-left:hover,
+.parallel-paragraphs .paragraph-right:hover {
+    transform: scale(1.25);      /* Agrandit légèrement le paragraphe */
+}
+
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .parallel-paragraphs .row {
+        flex-direction: column;  /* empile les colonnes sur mobile */
+        gap: 2rem;               /* espace entre les blocs empilés */
+    }
+}
+
+
+
+
+
+
 
 /* =========================
    MEDIA QUERY SUPPLEMENTAIRES
