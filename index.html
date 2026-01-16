@@ -16,6 +16,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AuditCom</title>
+
+<!-- Préconnexion à Google Fonts pour charger les polices plus rapidement -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Import de la police Inter (proche de Neues Haas Grotesk) avec plusieurs poids -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+
+
     <link rel="stylesheet" href="css/style.css" />
     <script src="src/main.js" type="module" defer></script>
 </head>
@@ -78,10 +90,20 @@
                 Analyses disponibles pour <span data-bind-global="count"></span> clubs
             </h2>
 
-            <section id="teamList" class="team-grid"></section>
+ <!-- WRAPPER POUR ANIMATION INFINIE DES LOGOS -->
+    <div class="team-slider-wrapper">
+        <!-- #teamList : conteneur déjà utilisé par le JS pour injecter les rapports -->
+        <!-- On ajoute ici la classe team-slider pour appliquer l'animation CSS -->
+        <section id="teamList" class="team-slider"></section>
+    </div>
+
         </section>
 
 
+
+
+
+        
 
         <!-- STATS 1 -->
         <section class="stats-visual">
