@@ -186,37 +186,7 @@
         </div>
     </footer>
 
-    <!-- ============================
-         SCRIPT JS POUR ANIMATION DES IMAGES
-    ============================ -->
-    <script>
-// Sélectionne toutes les images animées
-const images = document.querySelectorAll('.block-illustration');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY; // Scroll vertical
-    const windowWidth = window.innerWidth;
-
-    images.forEach(img => {
-        const speedFactor = 0.05; // vitesse du scroll
-        let offset = scrollTop * speedFactor;
-
-        // Largeur max que l'image peut se déplacer pour ne pas cacher le texte
-        const parentWidth = img.closest('.row').offsetWidth;
-        const imgWidth = img.offsetWidth;
-        const maxOffset = Math.max(0, parentWidth - imgWidth - 20); // 20px marge
-
-        if (offset > maxOffset) offset = maxOffset;
-
-        // Déplacement selon le type de ligne
-        if (img.closest('.row.reverse')) {
-            img.style.transform = `translateX(-${offset}px)`;
-        } else {
-            img.style.transform = `translateX(${offset}px)`;
-        }
-    });
-});
-</script>
+   
 
 
     <!-- TEMPLATE MESSAGE FORMULAIRE -->
@@ -225,6 +195,35 @@ window.addEventListener('scroll', () => {
             <p data-bind="message"></p>
         </div>
     </template>
+
+
+<script>
+/* =========================
+   ZOOM IMAGE AU SCROLL
+========================= */
+
+const images = document.querySelectorAll('.block-illustration');
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    },
+    {
+        threshold: 0.5   // 50% de l’image visible → zoom
+    }
+);
+
+// Observe toutes les images
+images.forEach(img => observer.observe(img));
+</script>
+
+
 
 </body>
 

@@ -214,6 +214,28 @@ main { width: 80%; margin: 0 auto; }
     margin-bottom: 1rem;
 }
 
+
+/* =========================
+   IMAGE – ZOOM AU SCROLL
+========================= */
+
+.block-illustration {
+    width: clamp(200px, 30%, 525px);
+    height: auto;
+    object-fit: contain;
+
+    transform: scale(0.9);                 /* état initial */
+    transition: transform 0.6s ease-out;   /* zoom fluide */
+    will-change: transform;
+}
+
+/* Image visible dans le viewport */
+.block-illustration.is-visible {
+    transform: scale(1.1);                 /* zoom quand on est dessus */
+}
+
+
+
 /* Texte du paragraphe */
 .parallel-paragraphs p {
     font-size: 1rem;
