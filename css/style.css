@@ -4,40 +4,225 @@
    POLICES ET BASE
 ========================= */
 body {
-    font-family: 'Inter', sans-serif; /* Police principale, moderne et lisible */
-    line-height: 1.6;                /* Hauteur de ligne confortable */
+    font-family: 'Inter', sans-serif; /* Police principale */
+    line-height: 1.6;                 /* Hauteur de ligne confortable */
     color: #333;
     margin: 0 auto;
     padding: 20px;
 }
 
+
+
+html {
+    font-size: clamp(16px, 2.2vw, 24px); /* Police adaptative */
+}
+
+main { 
+    width: 80%; 
+    margin: 0 auto; 
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    position: relative;
+    height: 90vh;
+    margin-bottom: 20rem;
+}
+
+.brand {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2.5rem, 5vw, 10rem);
+    z-index: 2;
+}
+
+.hero h2 {
+    text-align: center;
+}
+
+.hero-illustration {
+    width: 100%;
+    height: 90vh;
+    object-fit: contain;
+    opacity: 0.45;
+    display: block;
+}
+
+/* =========================
+   TITRES
+========================= */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600; /* Titres visibles et hiérarchisés */
+    font-weight: 600; /* Titres visibles */
+    transition: transform 0.25s ease, color 0.25s ease; /* Hover zoom & couleur */
+    transform-origin: center;
+}
+
+h2:hover,
+h3:hover {
+    transform: scale(1.04);
+    color: #e10600; /* rouge formulaire */
+}
+
+/* =========================
+   ESPACEMENTS ENTRE SECTIONS
+========================= */
+main > section {
+    margin-block: clamp(4rem, 10vh, 10rem); /* espacement responsive entre sections */
+}
+
+.stats-visual,
+.cta-section {
+    margin-block: clamp(6rem, 14vh, 14rem);
+}
+
+/* =========================
+   TITRE PRINCIPAL HERO
+   Boostez votre stratégie ...
+========================= */
+.row.reveal-up h2 {
+    margin-bottom: 2rem; /* espace entre le titre et le texte/image */
+    line-height: 1.4;    /* ligne un peu plus espacée pour lisibilité */
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem); /* titre responsive */
+}
+
+/* Optionnel : espace entre texte et image */
+.row.reveal-up p {
+    margin-bottom: 2rem; /* donne un peu d’air sous le paragraphe */
+}
+
+/* =========================
+   ANIMATION TEXTE "REVEAL UP"
+========================= */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .reveal-up {
+        animation: revealUp linear forwards;
+        animation-timeline: view();
+        animation-range: entry 20% cover 40%;
+    }
+}
+
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   BLOCS TEXTE + IMAGE
+========================= */
+.block-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7rem;
+    margin: 8rem 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.row.reverse {
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.row.reverse .text-droite {
+    margin-left: 2rem;
+    max-width: 480px;
+}
+
+.row.reverse .block-illustration {
+    margin-left: 0.5rem;
+}
+
+.text-gauche { text-align: left; max-width: 620px; }
+.text-droite { text-align: left; max-width: 480px; margin-left: auto; }
+
+.block-illustration {
+    width: clamp(200px, 30%, 525px);
+    max-width: 100vw;
+    height: auto;
+    object-fit: contain;
+    transform: scale(0.9);                /* état initial pour zoom scroll */
+    transition: transform 0.6s ease-out;
+    will-change: transform;
+}
+
+.block-illustration.is-visible {
+    transform: scale(1.1);                /* zoom quand visible */
+}
+
+/* =========================
+   PARAGRAPHES PARALLÈLES
+========================= */
+.parallel-paragraphs .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+    margin: 4rem 0;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+.parallel-paragraphs .paragraph-left,
+.parallel-paragraphs .paragraph-right {
+    flex: 1;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.parallel-paragraphs h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.parallel-paragraphs p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.parallel-paragraphs .paragraph-left:hover,
+.parallel-paragraphs .paragraph-right:hover {
+    transform: scale(1.05);
+    z-index: 10;
 }
 
 /* =========================
    CARROUSEL LOGOS
 ========================= */
 .team-slider-wrapper {
-    overflow: hidden; /* Cache les logos hors zone visible */
+    overflow: hidden;
     width: 100%;
     padding: 1rem 0;
     position: relative;
-
-    /* Effet fade sur les côtés */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 .team-slider {
     display: flex;
-    gap: 5rem; /* espace entre les logos */
+    gap: 5rem;
     align-items: center;
-    animation: scroll-logos 25s linear infinite; /* défilement infini */
+    animation: scroll-logos 25s linear infinite;
 }
 
 .team-slider .team-item {
-    flex: 0 0 auto; /* Empêche la réduction */
+    flex: 0 0 auto;
     width: 120px;
     text-align: center;
     display: flex;
@@ -58,7 +243,6 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: center;
 }
 
 @keyframes scroll-logos {
@@ -67,191 +251,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================
-   ZOOM IMAGE AU HOVER
+   STATS IMAGE HOVER ZOOM
 ========================= */
 .stats-placeholder {
-    overflow: hidden;        /* Cache les parties de l'image qui débordent */
-    display: inline-block;   /* Centrage correct de l'image */
+    overflow: hidden;
+    display: inline-block;
 }
 
 .stats-placeholder .chiffres-illustration {
     display: block;
     width: 100%;
     height: auto;
-    transition: transform 0.5s ease; /* Zoom fluide */
-    transform-origin: center center;  /* Zoom centré */
+    transition: transform 0.5s ease;
+    transform-origin: center center;
 }
 
 .stats-placeholder:hover .chiffres-illustration {
-    transform: scale(1.1); /* Zoom 10% */
+    transform: scale(1.1);
 }
 
 /* =========================
-   GÉNÉRAL / AUTRES SECTIONS
-========================= */
-html {
-    font-size: clamp(16px, 2.2vw, 24px); /* Police adaptative */
-}
-
-main { width: 80%; margin: 0 auto; }
-
-.hero {
-    position: relative;
-    height: 90vh;
-    margin-bottom: 20rem;
-}
-
-.hero h2 { text-align: center; }
-.hero-illustration {
-    width: 100%;
-    height: 90vh;
-    object-fit: contain;
-    opacity: 0.45;
-    display: block;
-}
-
-.brand {
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(2.5rem, 5vw, 10rem);
-    z-index: 2;
-}
-
-/* =========================
-   BLOCS TEXTE + IMAGE
-========================= */
-.block-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 7rem;
-    margin: 8rem 0;
-}
-
-.block-text > img {
-    width: 320px;
-    height: auto;
-    flex-shrink: 0;
-    object-fit: contain;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-}
-
-.row.reverse { flex-direction: row; }
-
-/* =========================
-   IMAGE COLLÉE AU BORD (RESPONSIVE)
-========================= */
-.block-illustration {
-    width: clamp(200px, 30%, 525px); /* largeur adaptative */
-    max-width: 100vw;                /* jamais dépasser la fenêtre */
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.1s linear;
-    will-change: transform;
-    margin: 0;                        /* plus de décalage fixe */
-}
-
-/* ESPACE ENTRE TEXTE ET IMAGE DANS LES LIGNES REVERSE */
-.row.reverse {
-    display: flex;
-    flex-direction: row; /* déjà défini, pour rappel */
-    align-items: center;
-    gap: 2rem; /* espace intérieur global entre texte et image */
-}
-
-.row.reverse .text-droite {
-    margin-left: 2rem; /* espace spécifique côté intérieur */
-    max-width: 480px;  /* limite la largeur pour que le texte ne touche pas l'image */
-}
-
-/* Optionnel : si tu veux que l'image ait un petit décalage côté gauche */
-.row.reverse .block-illustration {
-    margin-left: 0.5rem; /* petit écart pour que ça respire */
-}
-
-
-
-.row.reverse .block-illustration {
-        margin: 0;
-
-}
-
-.text-gauche { text-align: left; max-width: 620px; }
-.text-droite { text-align: left; max-width: 480px; margin-left: auto; }
-
-/* =========================
-   PARAGRAPHES PARALLÈLES
-========================= */
-.parallel-paragraphs .row {
-    display: flex;               /* Affiche les paragraphes côte à côte */
-    justify-content: space-between;
-    gap: 5rem;                   /* espace intérieur entre gauche et droite */
-    margin: 4rem 0;
-    align-items: flex-start;     /* Aligne le haut du texte */
-    overflow: visible;           /* Permet au texte de ne pas être coupé lors du hover */
-}
-
-/* Style commun pour chaque paragraphe */
-.parallel-paragraphs .paragraph-left,
-.parallel-paragraphs .paragraph-right {
-    flex: 1;                     
-    transition: transform 0.3s ease, font-size 0.3s ease;
-    cursor: pointer;
-    overflow: visible;           /* Assure que le texte ne soit pas masqué */
-}
-
-/* Titre du paragraphe */
-.parallel-paragraphs h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-
-/* =========================
-   IMAGE – ZOOM AU SCROLL
-========================= */
-
-.block-illustration {
-    width: clamp(200px, 30%, 525px);
-    height: auto;
-    object-fit: contain;
-
-    transform: scale(0.9);                 /* état initial */
-    transition: transform 0.6s ease-out;   /* zoom fluide */
-    will-change: transform;
-}
-
-/* Image visible dans le viewport */
-.block-illustration.is-visible {
-    transform: scale(1.1);                 /* zoom quand on est dessus */
-}
-
-
-
-/* Texte du paragraphe */
-.parallel-paragraphs p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;                  /* Supprime marge par défaut qui pourrait créer des coupes */
-}
-
-/* Effet hover : agrandissement du paragraphe */
-.parallel-paragraphs .paragraph-left:hover,
-.parallel-paragraphs .paragraph-right:hover {
-    transform: scale(1.05);      /* Légèrement plus petit que 1.25 pour éviter overflow */
-    z-index: 10;                 /* Passe devant les autres éléments si besoin */
-}
-
-/* =========================
-   CTA / TÉLÉCHARGEMENT RAPPORT
+   CTA / TÉLÉCHARGEMENT
 ========================= */
 .cta-section {
     position: relative;
@@ -271,7 +291,7 @@ main { width: 80%; margin: 0 auto; }
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Contenu visible entier */
+    object-fit: contain;
     z-index: 1;
     opacity: 0.8;
 }
@@ -296,7 +316,7 @@ main { width: 80%; margin: 0 auto; }
 }
 
 /* =========================
-   FORMULAIRE DE TÉLÉCHARGEMENT
+   FORMULAIRE
 ========================= */
 .form-section {
     margin: 8rem auto;
@@ -305,14 +325,10 @@ main { width: 80%; margin: 0 auto; }
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-.form-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
+.form-section h2 { margin-bottom: 2rem; }
 
 #downloadForm {
     display: flex;
@@ -324,14 +340,12 @@ main { width: 80%; margin: 0 auto; }
 #downloadForm input[type="email"] {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.2);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#downloadForm input[type="text"]:focus,
-#downloadForm input[type="email"]:focus {
+#downloadForm input:focus {
     border-color: #e63946;
     box-shadow: 0 0 0 3px rgba(230,57,70,0.2);
     outline: none;
@@ -340,8 +354,8 @@ main { width: 80%; margin: 0 auto; }
 #downloadForm label.checkbox {
     font-size: 0.85rem;
     display: flex;
-    justify-content: center; /* centré horizontalement */
-    align-items: center;     /* alignement vertical */
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
 }
@@ -350,7 +364,6 @@ main { width: 80%; margin: 0 auto; }
     background-color: #e63946;
     color: #fff;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
     padding: 0.9rem 1.5rem;
     border-radius: 999px;
     border: 2px solid #e63946;
@@ -390,25 +403,26 @@ main { width: 80%; margin: 0 auto; }
 }
 
 /* =========================
+   FOOTER
+========================= */
+.site-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-    /* Slider logo */
-    .team-slider .team-item { width: 80px; }
-    .team-slider .team-item img { height: 60px; }
-    .team-slider-wrapper {
-        -webkit-mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
-        mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
-    }
-
-    /* Contenus */
     main { width: 92%; }
     body { margin: 2rem 0; }
 
-    /* Parallèle paragraphes */
-    .parallel-paragraphs .row { flex-direction: column; gap: 2rem; }
-
-    /* Hero / blocs */
     .hero { height: auto; margin-bottom: 6rem; }
     .hero-illustration { height: auto; }
     .brand { position: static; transform: none; text-align: center; margin-bottom: 1rem; }
@@ -417,13 +431,13 @@ main { width: 80%; margin: 0 auto; }
     .block-text { gap: 3rem; margin: 4rem 0; }
     .row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .row.reverse { flex-direction: column; }
-    .block-illustration { width: 100%; max-width: 420px; flex: 0 0 auto; transform: translateX(0) !important; }
+    .block-illustration { width: 100%; max-width: 420px; flex: 0 0 auto !important; transform: translateX(0) !important; }
     .text-gauche, .text-droite { max-width: 100%; margin-left: 0; }
 
-    /* Formulaire */
+    .parallel-paragraphs .row { flex-direction: column; gap: 2rem; }
+
     .form-section { max-width: 90%; padding: 1.5rem; }
     #downloadForm button { min-width: 100%; }
 
-    /* Teams */
     .teams h2 { font-size: 0.95rem; }
 }
