@@ -18,10 +18,8 @@ h1, h2, h3, h4, h5, h6 {
 /* =========================
    CARROUSEL LOGOS
 ========================= */
-
-/* Wrapper visible du slider */
 .team-slider-wrapper {
-    overflow: hidden;       /* Cache les logos hors zone visible */
+    overflow: hidden; /* Cache les logos hors zone visible */
     width: 100%;
     padding: 1rem 0;
     position: relative;
@@ -31,17 +29,15 @@ h1, h2, h3, h4, h5, h6 {
     mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
-/* Slider horizontal */
 .team-slider {
     display: flex;
-    gap: 5rem;                         /* espace entre les logos */
+    gap: 5rem; /* espace entre les logos */
     align-items: center;
-    animation: scroll-logos 25s linear infinite; /* tentative de défilement infini */
+    animation: scroll-logos 25s linear infinite; /* défilement infini */
 }
 
-/* Chaque logo/article */
 .team-slider .team-item {
-    flex: 0 0 auto;         /* Empêche la réduction */
+    flex: 0 0 auto; /* Empêche la réduction */
     width: 120px;
     text-align: center;
     display: flex;
@@ -49,318 +45,304 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-/* Logo */
 .team-slider .team-item img {
     width: auto;
     height: 90px;
     object-fit: contain;
 }
 
-/* Nom sous le logo */
 .team-slider .team-item h2 {
     font-size: 0.75rem;
     line-height: 1.1;
     max-width: 120px;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
 }
 
-/* Animation clé (ne fonctionne que si la piste est suffisamment longue) */
 @keyframes scroll-logos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-
 /* =========================
    ZOOM IMAGE AU HOVER
 ========================= */
-
-/* Container pour gérer le zoom */
 .stats-placeholder {
-    overflow: hidden;        /* cache les parties de l'image qui débordent lors du zoom */
-    display: inline-block;   /* permet à l'image d'être centrée correctement */
+    overflow: hidden;        /* Cache les parties de l'image qui débordent */
+    display: inline-block;   /* Centrage correct de l'image */
 }
 
-/* Image qui va zoomer */
 .stats-placeholder .chiffres-illustration {
     display: block;
-    width: 100%;            /* ajuste selon ton besoin */
+    width: 100%;
     height: auto;
-    transition: transform 0.5s ease; /* transition fluide du zoom */
-    transform-origin: center center; /* zoom centré sur le milieu */
+    transition: transform 0.5s ease; /* Zoom fluide */
+    transform-origin: center center;  /* Zoom centré */
 }
 
-/* Effet hover */
 .stats-placeholder:hover .chiffres-illustration {
-    transform: scale(1.1); /* zoom de 10%, tu peux ajuster */
-}
-
-
-
-
-
-
-/* =========================
-   RESPONSIVE (Mobile)
-========================= */
-@media (max-width: 768px) {
-    /* Slider logo */
-    .team-slider .team-item { width: 80px; }
-    .team-slider .team-item img { height: 60px; }
-    .team-slider-wrapper {
-        -webkit-mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
-        mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
-    }
-
-    /* Team-grid */
-    .team-grid { gap: 1rem; padding: 1rem 0.5rem; }
-    .team-grid img { height: 70px; }
-
-    /* Main / body */
-    main { width: 92%; }
-    body { margin: 2rem 0; }
+    transform: scale(1.1); /* Zoom 10% */
 }
 
 /* =========================
    GÉNÉRAL / AUTRES SECTIONS
 ========================= */
-html { font-size: clamp(16px, 2.2vw, 24px); }
+html {
+    font-size: clamp(16px, 2.2vw, 24px); /* Police adaptative */
+}
 
 main { width: 80%; margin: 0 auto; }
 
-.hero { position: relative; height: 90vh; margin-bottom: 20rem; }
+.hero {
+    position: relative;
+    height: 90vh;
+    margin-bottom: 20rem;
+}
+
 .hero h2 { text-align: center; }
-.hero-illustration { width: 100%; height: 90vh; object-fit: contain; opacity: 0.45; display: block; }
-.brand { position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%); font-size: clamp(2.5rem, 5vw, 10rem); z-index: 2; }
+.hero-illustration {
+    width: 100%;
+    height: 90vh;
+    object-fit: contain;
+    opacity: 0.45;
+    display: block;
+}
 
-.block-text { display: flex; flex-direction: column; justify-content: space-between; gap: 7rem; margin: 8rem 0; }
-.block-text > img { width: 320px; height: auto; flex-shrink: 0; object-fit: contain; }
+.brand {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2.5rem, 5vw, 10rem);
+    z-index: 2;
+}
 
-.row { display: flex; justify-content: space-between; align-items: center; gap: 4rem; }
+/* =========================
+   BLOCS TEXTE + IMAGE
+========================= */
+.block-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7rem;
+    margin: 8rem 0;
+}
+
+.block-text > img {
+    width: 320px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
 .row.reverse { flex-direction: row; }
 
-/* IMAGE COLLÉE AU BORD */
-.block-text .block-illustration {
-    width: 525px;                  /* taille de ton choix */
-    max-width: none;               /* enlève toute limite */
-    margin-left: calc(-50vw + 50%); /* colle l'image au bord gauche */
-    transition: transform 0.1s linear; /* rend le mouvement fluide */
-    will-change: transform;        /* optimise le rendu GPU */
+/* =========================
+   IMAGE COLLÉE AU BORD (RESPONSIVE)
+========================= */
+.block-illustration {
+    width: clamp(200px, 30%, 525px); /* largeur adaptative */
+    max-width: 100vw;                /* jamais dépasser la fenêtre */
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.1s linear;
+    will-change: transform;
+    margin: 0;                        /* plus de décalage fixe */
 }
 
-/* IMAGE COLLÉE AU BORD DROITE */
-.row.reverse .block-illustration {
-    width: 500px;                     /* taille de ton choix */
-    max-width: none;                  /* enlève toute limite */
-    margin-right: calc(-50vw + 50%);  /* colle l'image au bord droit */
-    transition: transform 0.1s linear; /* mouvement fluide */
-    will-change: transform;           /* optimisation GPU */
+/* ESPACE ENTRE TEXTE ET IMAGE DANS LES LIGNES REVERSE */
+.row.reverse {
+    display: flex;
+    flex-direction: row; /* déjà défini, pour rappel */
+    align-items: center;
+    gap: 2rem; /* espace intérieur global entre texte et image */
 }
 
-/* ESPACE ENTRE TEXTE ET IMAGE */
 .row.reverse .text-droite {
-    margin-left: 2.5rem; /* espace entre texte et image */
-    max-width: 500px;    /* optionnel: limite la largeur du texte */
+    margin-left: 2rem; /* espace spécifique côté intérieur */
+    max-width: 480px;  /* limite la largeur pour que le texte ne touche pas l'image */
+}
+
+/* Optionnel : si tu veux que l'image ait un petit décalage côté gauche */
+.row.reverse .block-illustration {
+    margin-left: 0.5rem; /* petit écart pour que ça respire */
 }
 
 
 
+.row.reverse .block-illustration {
+        margin: 0;
+
+}
 
 .text-gauche { text-align: left; max-width: 620px; }
 .text-droite { text-align: left; max-width: 480px; margin-left: auto; }
 
-.chiffres-illustration { width: 100%; margin: 5rem 0; }
-
-.teams { margin: 8rem 0; }
-.teams h2 { text-align: center; font-size: 1rem; margin-bottom: 2rem; }
-
-.form-section { margin: 8rem auto; max-width: 420px; }
-#downloadForm { display: flex; flex-direction: column; gap: 1rem; }
-#downloadForm input[type="text"], #downloadForm input[type="email"] { padding: 0.75rem 1rem; font-size: 0.85rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.25); }
-#downloadForm button { padding: 0.9rem; border-radius: 999px; border: 1px solid rgba(0,0,0,0.3); background: none; cursor: pointer; }
-#downloadForm button:hover { background: rgba(0,0,0,0.05); }
-.checkbox { font-size: 0.75rem; display: flex; gap: 0.5rem; align-items: center; }
-
-#messageContainer .message { margin-bottom: 1rem; padding: 0.75rem; border-radius: 6px; }
-#messageContainer .success { background: rgba(0,150,0,0.1); }
-#messageContainer .error { background: rgba(180,0,0,0.1); }
-
-.site-footer { margin-top: 6rem; padding: 2rem 0; text-align: center; font-size: 0.85rem; opacity: 0.7; }
-
-
-/* ============================
-   SECTION CTA - TÉLÉCHARGER RAPPORT
-============================ */
-
-/* Container principal de la section CTA */
-.cta-section {
-    position: relative;           /* Permet de positionner l'image et le bouton en absolu relatif à cette section */
-    width: 100%;                  /* Prend toute la largeur de la page */
-    display: flex;                /* Utilise flexbox pour centrer le bouton horizontalement */
-    justify-content: center;      /* Centre horizontalement */
-    align-items: center;          /* Centre verticalement */
-    height: 60vh;                 /* Hauteur de la section : 60% de la hauteur de la fenêtre */
-    overflow: hidden;             /* Cache tout ce qui dépasse de la section */
-    margin: 8rem 0;               /* Marge en haut et en bas */
-}
-
-/* Image de fond de la section CTA */
-.cta-background {
-    position: absolute;           /* Absolue pour être derrière le bouton */
-    top: 50%;                     /* Centre verticalement */
-    left: 50%;                    /* Centre horizontalement */
-    transform: translate(-50%, -50%); /* Ajuste le centrage exact */
-    width: 100%;                  /* Largeur = largeur de la page */
-    height: 100%;                 /* Hauteur = hauteur de la section */
-    object-fit: contain;          /* Contenu entier visible sans être coupé */
-    z-index: 1;                   /* Derrière le bouton */
-    opacity: 0.8;                 /* Légère transparence pour que le bouton ressorte */
-}
-
-/* Bouton principal du CTA */
-.cta-button {
-    position: relative;           /* Relatif pour être au-dessus de l'image */
-    z-index: 2;                   /* Toujours devant l'image */
-    background-color: #FF3B30;    /* Rouge vif */
-    color: #fff;                  /* Texte blanc */
-    padding: 1rem 2rem;           /* Taille du bouton */
-    font-size: 1.25rem;           /* Taille du texte */
-    font-weight: 600;             /* Texte gras */
-    border-radius: 8px;           /* Coins arrondis */
-    text-decoration: none;        /* Pas de soulignement */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre légère */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide au hover */
-}
-
-/* Effet hover sur le bouton */
-.cta-button:hover {
-    transform: scale(1.15);       /* Zoom plus important quand on passe la souris */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Ombre plus prononcée */
-}
-
-/* Version responsive pour mobile */
-@media (max-width: 768px) {
-    .cta-section {
-        height: 50vh;             /* Hauteur réduite sur mobile */
-        margin: 4rem 0;           /* Moins d'espace vertical */
-    }
-
-    .cta-button {
-        font-size: 1rem;           /* Texte un peu plus petit */
-        padding: 0.75rem 1.5rem;   /* Bouton plus petit */
-    }
-}
-
-/* ============================
+/* =========================
    PARAGRAPHES PARALLÈLES
-============================ */
-
-/* Container de la section */
+========================= */
 .parallel-paragraphs .row {
     display: flex;               /* Affiche les paragraphes côte à côte */
-    justify-content: space-between; /* Espace entre les paragraphes */
-    gap: 5rem;                   /* Espace intérieur entre gauche et droite */
-    margin: 4rem 0;              /* Marge autour de la section */
+    justify-content: space-between;
+    gap: 5rem;                   /* espace intérieur entre gauche et droite */
+    margin: 4rem 0;
+    align-items: flex-start;     /* Aligne le haut du texte */
+    overflow: visible;           /* Permet au texte de ne pas être coupé lors du hover */
 }
 
 /* Style commun pour chaque paragraphe */
 .parallel-paragraphs .paragraph-left,
 .parallel-paragraphs .paragraph-right {
-    flex: 1;                     /* Chaque paragraphe prend la moitié de la ligne */
-    transition: transform 0.3s ease, font-size 0.3s ease; /* Effet fluide au hover */
-    cursor: pointer;             /* Indique qu'il y a un effet au survol */
+    flex: 1;                     
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    cursor: pointer;
+    overflow: visible;           /* Assure que le texte ne soit pas masqué */
 }
 
 /* Titre du paragraphe */
 .parallel-paragraphs h2 {
-    font-size: 1.5rem;           /* Taille du titre */
-    margin-bottom: 1rem;         /* Espace sous le titre */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Texte du paragraphe */
 .parallel-paragraphs p {
-    font-size: 1rem;             /* Taille du texte */
-    line-height: 1.6;            /* Espacement des lignes */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;                  /* Supprime marge par défaut qui pourrait créer des coupes */
 }
 
 /* Effet hover : agrandissement du paragraphe */
 .parallel-paragraphs .paragraph-left:hover,
 .parallel-paragraphs .paragraph-right:hover {
-    transform: scale(1.25);      /* Agrandit légèrement le paragraphe */
+    transform: scale(1.05);      /* Légèrement plus petit que 1.25 pour éviter overflow */
+    z-index: 10;                 /* Passe devant les autres éléments si besoin */
 }
 
-/* ==========================
+/* =========================
+   CTA / TÉLÉCHARGEMENT RAPPORT
+========================= */
+.cta-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    overflow: hidden;
+    margin: 8rem 0;
+}
+
+.cta-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Contenu visible entier */
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.cta-button {
+    position: relative;
+    z-index: 2;
+    background-color: #FF3B30;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* =========================
    FORMULAIRE DE TÉLÉCHARGEMENT
-=========================== */
+========================= */
 .form-section {
-    margin: 8rem auto;           /* espace autour de la section */
-    max-width: 420px;            /* largeur fixe pour centrer */
-    padding: 2rem;               /* padding intérieur */
-    background-color: #fff;      /* fond blanc pour se détacher */
-    border-radius: 16px;         /* coins arrondis */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* légère ombre */
+    margin: 8rem auto;
+    max-width: 420px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .form-section h2 {
-    text-align: center;          /* titre centré */
+    text-align: center;
     margin-bottom: 2rem;
-    font-weight: 600;            /* même style que le reste */
+    font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
 
 #downloadForm {
     display: flex;
     flex-direction: column;
-    gap: 1rem;                   /* espace entre les champs */
+    gap: 1rem;
 }
 
 #downloadForm input[type="text"],
 #downloadForm input[type="email"] {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
-    font-family: 'Inter', sans-serif; /* police cohérente */
-    border-radius: 10px;           /* arrondi des champs */
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.2);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #downloadForm input[type="text"]:focus,
 #downloadForm input[type="email"]:focus {
-    border-color: #e63946;         /* rouge au focus */
-    box-shadow: 0 0 0 3px rgba(230,57,70,0.2); /* halo léger */
+    border-color: #e63946;
+    box-shadow: 0 0 0 3px rgba(230,57,70,0.2);
     outline: none;
 }
 
 #downloadForm label.checkbox {
     font-size: 0.85rem;
     display: flex;
+    justify-content: center; /* centré horizontalement */
+    align-items: center;     /* alignement vertical */
     gap: 0.5rem;
-    align-items: center;
+    margin-top: 0.5rem;
 }
 
 #downloadForm button {
-    background-color: #e63946; /* rouge du bouton */
+    background-color: #e63946;
     color: #fff;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     padding: 0.9rem 1.5rem;
-    border-radius: 999px;      /* bouton rond */
+    border-radius: 999px;
     border: 2px solid #e63946;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
     text-align: center;
     display: block;
-    margin: 1rem auto 0 auto;  /* centré horizontalement */
-    min-width: 200px;           /* largeur minimale */
+    margin: 1rem auto 0 auto;
+    min-width: 200px;
 }
 
-/* Hover sur le bouton : effet zoom */
 #downloadForm button:hover {
     transform: scale(1.05);
-    background-color: #d62839; /* légèrement plus foncé au hover */
+    background-color: #d62839;
     border-color: #d62839;
 }
 
@@ -385,50 +367,26 @@ main { width: 80%; margin: 0 auto; }
     color: #a80000;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .form-section {
-        max-width: 90%;
-        padding: 1.5rem;
-    }
-
-    #downloadForm button {
-        min-width: 100%;
-    }
-}
-
-/* ===== CENTRAGE DE LA CASE À COCHER ===== */
-#downloadForm label.checkbox {
-    font-size: 0.85rem;
-    display: flex;
-    justify-content: center;   /* centre horizontalement le contenu */
-    align-items: center;       /* aligne la checkbox et le texte verticalement */
-    gap: 0.5rem;               /* espace entre la checkbox et le texte */
-    margin-top: 0.5rem;        /* léger espace au-dessus */
-}
-
-
-
-/* ============================
-   RESPONSIVE
-============================ */
-@media (max-width: 768px) {
-    .parallel-paragraphs .row {
-        flex-direction: column;  /* empile les colonnes sur mobile */
-        gap: 2rem;               /* espace entre les blocs empilés */
-    }
-}
-
-
-
-
-
-
-
 /* =========================
-   MEDIA QUERY SUPPLEMENTAIRES
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
+    /* Slider logo */
+    .team-slider .team-item { width: 80px; }
+    .team-slider .team-item img { height: 60px; }
+    .team-slider-wrapper {
+        -webkit-mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 5%, black 95%, transparent 100%);
+    }
+
+    /* Contenus */
+    main { width: 92%; }
+    body { margin: 2rem 0; }
+
+    /* Parallèle paragraphes */
+    .parallel-paragraphs .row { flex-direction: column; gap: 2rem; }
+
+    /* Hero / blocs */
     .hero { height: auto; margin-bottom: 6rem; }
     .hero-illustration { height: auto; }
     .brand { position: static; transform: none; text-align: center; margin-bottom: 1rem; }
@@ -437,16 +395,13 @@ main { width: 80%; margin: 0 auto; }
     .block-text { gap: 3rem; margin: 4rem 0; }
     .row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .row.reverse { flex-direction: column; }
-    .block-illustration { width: 100%; max-width: 420px; flex: 0 0 auto; }
+    .block-illustration { width: 100%; max-width: 420px; flex: 0 0 auto; transform: translateX(0) !important; }
     .text-gauche, .text-droite { max-width: 100%; margin-left: 0; }
-    .chiffres-illustration { margin: 2.5rem 0; }
 
-    .form-section { max-width: 100%; }
+    /* Formulaire */
+    .form-section { max-width: 90%; padding: 1.5rem; }
+    #downloadForm button { min-width: 100%; }
+
+    /* Teams */
     .teams h2 { font-size: 0.95rem; }
-}
-
-@media (max-width: 768px) {
-    .block-text .block-illustration {
-        transform: translateX(0) !important; /* pas de mouvement sur mobile */
-    }
 }

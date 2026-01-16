@@ -17,25 +17,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AuditCom</title>
 
-<!-- Préconnexion à Google Fonts pour charger les polices plus rapidement -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Import de la police Inter (proche de Neues Haas Grotesk) avec plusieurs poids -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-
-
-
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS principal -->
     <script src="src/main.js" type="module" defer></script>
 </head>
 
 <body>
 
+    <!-- HERO -->
     <header class="hero">
-        <h1 class="brand">La présence digital des clubs Romands</h1>
+        <h1 class="brand">La présence digitale des clubs Romands</h1>
         <img src="images_siteweb/carlos-torres-oOt9hf8XGEQ-unsplash.png" alt="Illustration AuditCom"
             class="hero-illustration" />
         <h2>Boostez votre stratégie sport-business grâce à l'analyse digitale exclusive des clubs suisses romands</h2>
@@ -50,18 +48,11 @@
             <div class="row">
                 <div class="text-gauche">
                     <h2>28 clubs analysés</h2>
-                    <p>À l’ère du digital, l’engagement des supporters et la visibilité des partenaires se jouent en
-                        ligne.
+                    <p>
+                        À l’ère du digital, l’engagement des supporters et la visibilité des partenaires se jouent en ligne.
                         L’analyse de l’écosystème numérique n’est plus optionnelle : c’est un levier stratégique pour
                         assurer la pérennité financière des clubs. Notre audit examine la performance digitale de plus
-                        de 30
-                        clubs suisses, en comparant leurs pratiques aux standards du marketing sportif. En analysant
-                        médias
-                        possédés, gagnés et partagés, nous montrons comment transformer une simple vitrine en une
-                        expérience
-                        immersive qui fédère la communauté et maximise la valeur des partenariats.
-                        Téléchargez ce rapport exclusif pour découvrir les clés d’une transition numérique réussie, du
-                        terrain de village à la Super League.
+                        de 30 clubs suisses, en comparant leurs pratiques aux standards du marketing sportif...
                     </p>
                 </div>
             </div>
@@ -69,220 +60,171 @@
             <!-- Ligne 2 : image + texte alignés -->
             <div class="row">
                 <img src="images_siteweb/joueur03.jpeg" alt="joueur03" class="block-illustration">
-
                 <div class="text-droite">
                     <h2>Dans ce rapport</h2>
                     <p>
-                        Écosystème digital - Storytelling - Conversion - Engagement - Monétisation - Phygital - SEO -
-                        Responsive - Accessibilité - Performance - Super League - Pyramide du football - Ancrage
-                        régional -
-                        Swiss Football League - Méta-étude
+                        Écosystème digital - Storytelling - Conversion - Engagement - Monétisation - Phygital - SEO - Responsive - Accessibilité - Performance - Super League - Pyramide du football - Ancrage régional - Swiss Football League - Méta-étude
                     </p>
                 </div>
             </div>
 
         </section>
 
-
-        <!-- LOGOS / LISTE DYNAMIQUE (AuditCom obligatoire) -->
+        <!-- LOGOS -->
         <section class="teams">
-            <h2>
-                Analyses disponibles pour <span data-bind-global="count"></span> clubs
-            </h2>
-
- <!-- WRAPPER POUR ANIMATION INFINIE DES LOGOS -->
-    <div class="team-slider-wrapper">
-        <!-- #teamList : conteneur déjà utilisé par le JS pour injecter les rapports -->
-        <!-- On ajoute ici la classe team-slider pour appliquer l'animation CSS -->
-        <section id="teamList" class="team-slider"></section>
-    </div>
-
+            <h2>Analyses disponibles pour <span data-bind-global="count"></span> clubs</h2>
+            <div class="team-slider-wrapper">
+                <section id="teamList" class="team-slider"></section>
+            </div>
         </section>
-
-
-
-
-
-        
 
         <!-- STATS 1 -->
         <section class="stats-visual">
             <h2>Chiffres les plus impactants des réseaux sociaux</h2>
             <div class="stats-placeholder">
-                <img class="chiffres-illustration" src="images_siteweb/image_réseaux.jpeg"
-                    alt="statistique_réseaux"><!-- SVG/canvas -->
+                <img class="chiffres-illustration" src="images_siteweb/image_réseaux.jpeg" alt="statistique_réseaux">
             </div>
         </section>
 
-       <section class="block-text"> <!-- Ligne 1 : image gauche / texte droite -->
-            <div class="row"> <img src="images_siteweb/10a58370-e729-4330-a4be-64feeb66d482 2.png"
-                    alt="2 joueur fond bleu" class="block-illustration">
+        <!-- BLOCKS IMAGES + TEXTE -->
+        <section class="block-text">
+
+            <!-- Ligne 1 -->
+            <div class="row">
+                <img src="images_siteweb/10a58370-e729-4330-a4be-64feeb66d482 2.png" alt="2 joueur fond bleu"
+                    class="block-illustration">
                 <div class="text-gauche">
                     <h2>450 millions</h2>
-                    <p>de francs suisses pour la construction de son nouveau stade à l'horizon 2030, pour le FC Sion</p>
+                    <p>De francs suisses pour la construction de son nouveau stade à l'horizon 2030, pour le FC Sion</p>
                 </div>
+            </div>
 
-              
-
-
-   </div> <!-- Ligne 2 : texte gauche / image droite -->
+            <!-- Ligne 2 -->
             <div class="row reverse">
                 <div class="text-droite">
                     <h2>34 équipes</h2>
-                    <p>au sein du CS Chênois qui gère une structure massive</p>
-                </div> <img src="images_siteweb/5f06162b-4dd7-4616-a5d8-1f7d844e3432 2.png" alt="joueur fond vert"
+                    <p>Au sein du CS Chênois qui gère une structure massive</p>
+                </div>
+                <img src="images_siteweb/5f06162b-4dd7-4616-a5d8-1f7d844e3432 2.png" alt="joueur fond vert"
                     class="block-illustration">
             </div>
-            
-            
         </section>
 
-
-        <!-- STATS 2 (dans ta maquette: “Ancienneté”) -->
+        <!-- STATS 2 -->
         <section class="stats-visual">
             <h2>Ancienneté des clubs</h2>
             <div class="stats-placeholder">
                 <img class="chiffres-illustration" src="images_siteweb/image_Anciennete.jpeg" alt="Anciennete_club">
-                <!-- SVG/canvas -->
             </div>
         </section>
 
+        <!-- BLOCKS IMAGES + TEXTE -->
         <section class="block-text">
-
-            <!-- Ligne 1 : image gauche / texte droite -->
+            <!-- Ligne 1 -->
             <div class="row">
                 <img src="images_siteweb/yvsport 1.png" alt="joueur Yverdon" class="block-illustration">
-
                 <div class="text-gauche">
                     <h2>150'000 visiteurs par an</h2>
-                    <p>sur le site internet officiel d'Yverdon Sport FC</p>
+                    <p>Sur le site internet officiel d'Yverdon Sport FC</p>
                 </div>
             </div>
 
-            <!-- Ligne 2 : texte gauche / image droite -->
+            <!-- Ligne 2 -->
             <div class="row reverse">
                 <div class="text-droite">
                     <h2>12'700 places</h2>
-                    <p>au Stade de la Charrière ou évolue FC La Chaux-de-Fonds</p>
+                    <p>Au Stade de la Charrière où évolue FC La Chaux-de-Fonds</p>
                 </div>
-
                 <img src="images_siteweb/f20cd427-1bd5-4c6a-9255-2af371edc2f3 1.png" alt="joueur fond jaune"
                     class="block-illustration">
             </div>
-
         </section>
 
-        <!-- ============================
-   SECTION CTA - TÉLÉCHARGEMENT RAPPORT
-============================ -->
-<section class="cta-section">
-    <!-- Image de fond -->
-    <img src="images_siteweb/team.png" alt="Fond CTA" class="cta-background">
+        <!-- CTA -->
+        <section class="cta-section">
+            <img src="images_siteweb/team.png" alt="Fond CTA" class="cta-background">
+            <a href="#downloadForm" class="cta-button">Télécharger le rapport</a>
+        </section>
 
- <!-- Bouton centré -->
-    <a href="#downloadForm" class="cta-button">Télécharger le rapport</a>
-</section>
+        <!-- PARAGRAPHES PARALLÈLES -->
+        <section class="parallel-paragraphs">
+            <div class="row">
+                <div class="paragraph-left">
+                    <h2>Pourquoi télécharger le rapport</h2>
+                    <p>Ce rapport vous fournit des insights détaillés sur les tendances actuelles, les chiffres clés et les stratégies qui impactent le football suisse...</p>
+                </div>
+                <div class="paragraph-right">
+                    <h2>Développement du football suisse</h2>
+                    <p>Le but de ce rapport est également de promouvoir et soutenir le développement du football en Suisse...</p>
+                </div>
+            </div>
+        </section>
 
-
-<section class="parallel-paragraphs">
-    <div class="row">
-        <!-- Paragraphe gauche -->
-        <div class="paragraph-left">
-            <h2>Pourquoi télécharger le rapport</h2>
-            <p>Ce rapport vous fournit des insights détaillés sur les tendances actuelles, les chiffres clés et les stratégies 
-                qui impactent le football suisse. En le téléchargeant, vous aurez accès à des informations exclusives qui vous 
-                aideront à mieux comprendre le marché, les clubs et les opportunités de développement. </p>
-        </div>
-
-        <!-- Paragraphe droite -->
-        <div class="paragraph-right">
-            <h2>Développement du football suisse</h2>
-            <p>Le but de ce rapport est également de promouvoir et soutenir le développement du football en Suisse. 
-                Grâce aux analyses et recommandations fournies, les clubs, les fédérations et les acteurs du secteur 
-                pourront mettre en place des stratégies efficaces pour renforcer la compétitivité, la visibilité et 
-                l’accessibilité du football dans tout le pays.</p>
-        </div>
-    </div>
-</section>
-
-
-
-
-
+        <!-- FORMULAIRE -->
         <section class="form-section">
             <h2>Télécharger le rapport</h2>
 
-            <!-- Message injecté par le JS -->
             <div id="messageContainer"></div>
 
             <form id="downloadForm">
                 <input type="text" name="firstName" placeholder="Prénom" required />
-
                 <input type="text" name="lastName" placeholder="Nom" required />
-
                 <input type="email" name="email" placeholder="Email" required />
-
                 <label class="checkbox">
                     <input type="checkbox" name="newsletterAgreement" required />
                     J’accepte la newsletter
                 </label>
-
                 <button type="submit">Télécharger</button>
             </form>
         </section>
-
-
-        
-
 
     </main>
 
     <footer class="site-footer">
         <div class="footer-content">
-            <span>HEIG‑VD</span>
-            <span>•</span>
-            <span>Kristina Tomic</span>
-            <span>•</span>
-            <span>Lucas Lourenço Martins</span>
+            <span>HEIG‑VD</span> • <span>Kristina Tomic</span> • <span>Lucas Lourenço Martins</span>
         </div>
     </footer>
 
-<script>
-// ============================
-// ANIMATION SCROLL HORIZONTALE DES IMAGES (avance et recule)
-// ============================
-
+    <!-- ============================
+         SCRIPT JS POUR ANIMATION DES IMAGES
+    ============================ -->
+    <script>
+// Sélectionne toutes les images animées
 const images = document.querySelectorAll('.block-illustration');
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY; // position verticale du scroll
+    const scrollTop = window.scrollY; // Scroll vertical
+    const windowWidth = window.innerWidth;
 
     images.forEach(img => {
-        const speedFactor = 0.05; // vitesse du mouvement
-
-        // Calcul de l'offset en fonction du scroll
+        const speedFactor = 0.05; // vitesse du scroll
         let offset = scrollTop * speedFactor;
 
-        // Direction selon la ligne
+        // Largeur max que l'image peut se déplacer pour ne pas cacher le texte
+        const parentWidth = img.closest('.row').offsetWidth;
+        const imgWidth = img.offsetWidth;
+        const maxOffset = Math.max(0, parentWidth - imgWidth - 20); // 20px marge
+
+        if (offset > maxOffset) offset = maxOffset;
+
+        // Déplacement selon le type de ligne
         if (img.closest('.row.reverse')) {
-            // Ligne inversée : mouvement vers la gauche
             img.style.transform = `translateX(-${offset}px)`;
         } else {
-            // Ligne normale : mouvement vers la droite
             img.style.transform = `translateX(${offset}px)`;
         }
     });
 });
 </script>
 
-<!-- TEMPLATE POUR MESSAGE FORMULAIRE -->
-<template id="messageItem">
-  <div data-bind-attr-class="messageClass" class="message">
-    <p data-bind="message"></p>
-  </div>
-</template>
 
-
+    <!-- TEMPLATE MESSAGE FORMULAIRE -->
+    <template id="messageItem">
+        <div data-bind-attr-class="messageClass" class="message">
+            <p data-bind="message"></p>
+        </div>
+    </template>
 
 </body>
 
